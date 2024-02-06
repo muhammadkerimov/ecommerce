@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | socialking.az</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header_main{
+            position: relative;
+            margin-top: 0;
+            display: flex;
+            width: 100%;
+            height: 12vh;
+            background-color: whitesmoke;
+        }
+        .email__login{
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            font-size: 14px;
+        }
+        .user__auth{
+            position: relative;
+	        display: inline-block;
+            margin-left: 50%;
+            margin-top: 7px;
+            
+        }
+        .user__login{
+
+            display: block;
+            font-size: 17px;
+            
+        }
+        
+        .navbar__links{
+            
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            font-size: medium;
+            list-style-type:none;
+            margin-left: 3cm;
+        }
+        .navbar__links a{
+            text-decoration: none;
+            color: black;
+        }
+        .navbar__links a:hover{
+            color: #F0131E;
+            transition: 0.3s;
+        }
+        .active{
+            color: #F0131E;
+        }
+        .orderView{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #DCAE96;
+        
+        }
+        .orderID {
+            font-size: 20pt;
+            
+        }
+        .orderProduct{
+            display: flex;
+            flex-direction: row;
+            column-gap: 10px;
+            align-items: center;
+        }
+    
+        .orderProducts{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+        .success{
+            
+            display: flex;
+            padding: 20px 20px;
+            background-color: #078c03;
+            border-radius: 20px;
+            font-weight: bold;
+
+        }
+        .error{
+            display: flex;
+            padding: 20px 20px;
+            background-color: #f71e1e;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+   <header class="header_main">
+    <div class="email__login" ><i class="fa fa-envelope"></i><span > admins@socialkingaz.com</span></div>
+    <div class="navbar__links">
+      <div class="nav-link active" ><a href="{%url 'indexadmin'%}" class="active">Orders</a></div>
+      <div class="nav-link"><a href="{%url 'customerspage'%}">Customers</a></div>
+      <div class="nav-link"><a href="{%url 'productsadmin'%}">Products</a></div>
+    </div>
+    <div class="user__auth">
+    <div class="user__login"> <i class="fa fa-user"></i> Welcome ,  <span>{{request.session.adminName}}</span></div>
+    
+</div>
+</header>
+<form method="post" enctype="multipart/form-data">{%csrf_token%}
+<section class="orderView">
+    <div class="messages">
+      {%for message in messages%}
+       <div class="{{message.tags}}">{{message}}</div>
+      <br>
+      {%endfor%}
+    </div>
+    
+   
+    <label for="productImage">Product Image:</label>
+    <input type="file" required name="prodFile" id="productImage">
+    <label for="prodName">Product Name:</label>
+    <div class="prod__name"><input required type="text" id="prodName" name="prodName"  ></div>
+    <label for="price">Price:</label>
+    <div class="product__price"><input required type="tel" id="price" name="prodPrice" placeholder="Product Price"></div>
+    <label for="discount">Discont:</label>
+    <div class="product__price"><input required type="tel" id="discount" name="prodDiscount" placeholder="Product Price"></div>
+    <label for="info">Product Info:</label>
+    <div class="prod__info"><textarea required name="prodInfo" id="info"  rows="3"></textarea></div>
+
+    <div class="site-button"><button type="submit" class="site-btn">SUBMIT</button></div> 
+
+</section>
+</form>
+
+
+   <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <script src="/static/js/jquery.slicknav.js"></script>
+    <script src="/static/js/mixitup.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    
+</body>
+</html>
