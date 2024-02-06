@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up | socialking.az</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../static/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../static/css/style1.css">
+    <style>
+        @keyframes transitionIn{
+            from{
+               opacity: 0;
+               transform: translateY(-15deg);
+            }
+            to{
+               opacity: 1;
+               transform: translateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="signup" style="animation: transitionIn 0.75s;">
+        <div class="container">
+            <div class="signup-content">
+                <a href="./" class="signup-image-link" style="margin-left: 10px;max-width: 10cm;margin-top: -60px;"><i class="fa fa-arrow-left"></i>Back To Main Page</a>
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form method="POST" class="register-form" id="register-form">
+                        {%csrf_token%}
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="surname" id="surname" placeholder="Your Surname" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="fathername"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="fathername" id="fathername" placeholder="Father Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phonenumber"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="phonenumber" style="width: 17cm;" id="phonenumber" placeholder="Your Phone Number" maxlength="14" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="address" id="address" placeholder="Address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="pass" id="pass" placeholder="Password" minlength="8" required/>
+                        </div>
+                        
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="site-btn" value="Register"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="../static/img/logo.png" alt="sing up image"></figure>
+                    <a href="./login" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
